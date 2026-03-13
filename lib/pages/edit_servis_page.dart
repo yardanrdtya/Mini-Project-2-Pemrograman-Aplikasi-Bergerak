@@ -1,44 +1,56 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-class TambahServisPage extends StatefulWidget {
-  const TambahServisPage({super.key});
+final supabase = Supabase.instance.client;
+
+class EditServisPage extends StatefulWidget {
+  final Map<String, dynamic> servis;
+
+  const EditServisPage({super.key, required this.servis});
 
   @override
-  State<TambahServisPage> createState() => _TambahServisPageState();
+  State<EditServisPage> createState() => _EditServisPageState();
 }
 
-class _TambahServisPageState extends State<TambahServisPage> {
-
-  final supabase = Supabase.instance.client;
-
+class _EditServisPageState extends State<EditServisPage> {
   final namaController = TextEditingController();
   final tipeController = TextEditingController();
   final keluhanController = TextEditingController();
 
-  Future<void> simpanData() async {
-    if (namaController.text.isEmpty ||
-      tipeController.text.isEmpty ||
-      keluhanController.text.isEmpty) {
-    return;
+  @override
+  void initState() {
+    super.initState();
+
+    namaController.text = widget.servis["nama_pelanggan"];
+    tipeController.text = widget.servis["tipe_motor"];
+    keluhanController.text = widget.servis["keluhan"];
   }
 
-  await supabase.from('servis').insert({
-    'nama_pelanggan': namaController.text,
-    'tipe_motor': tipeController.text,
-    'keluhan': keluhanController.text,
-  });
+  Future<void> updateData() async {
+    await supabase.from('servis').update({
+      'nama_pelanggan': namaController.text,
+      'tipe_motor': tipeController.text,
+      'keluhan': keluhanController.text,
+    }).eq('id', widget.servis['id']);
 
-  if (!mounted) return;
-  Navigator.pop(context, true);
-}
+    if (!mounted) return;
+    Navigator.pop(context, true);
+  }
+
+  @override
+  void dispose () {
+    namaController.dispose();
+    tipeController.dispose();
+    keluhanController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Tambah Data Servis",
+          "Edit Data Servis",
           style: TextStyle(color: Colors.white),
         ),
         flexibleSpace: Container(
@@ -87,8 +99,8 @@ class _TambahServisPageState extends State<TambahServisPage> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: simpanData,
-              child: const Text("Simpan"),
+              onPressed: updateData,
+              child: const Text("Update"),
             ),
           ],
         ),

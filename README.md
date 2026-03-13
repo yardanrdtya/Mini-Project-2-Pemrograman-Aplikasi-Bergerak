@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-# flutter_application_1
-
-A new Flutter project.
-=======
-# Mini-Project-1-Pemrograman-Aplikasi-Bergerak
+# Mini-Project-2-Pemrograman-Aplikasi-Bergerak
 Yardan Raditya Rafi' Widyadhana | 2409116037 | Sistem Informasi A 2024
 
 # Aplikasi Pendataan Servis Motor Bengkel DMR Samarinda
@@ -17,37 +12,53 @@ Aplikasi ini memungkinkan admin untuk menambahkan data pelanggan servis, melihat
 
 ## ⚙️ Fitur Aplikasi
 
-1. **Tambah Data Servis (Create)**  
-   Admin dapat menambahkan data servis motor pelanggan melalui form input yang terdiri dari nama pelanggan, tipe motor, dan keluhan servis.
+1. **Login User**  
+   Pengguna dapat masuk ke aplikasi menggunakan email dan password yang terhubung dengan Supabase Authentication.
 
-2. **Tampilkan Data Servis (Read)**  
-   Aplikasi menampilkan daftar data servis pelanggan yang telah dimasukkan dalam bentuk list sehingga mudah dibaca dan dikelola.
+2. **Register User**  
+   Pengguna dapat membuat akun baru sebelum menggunakan aplikasi.
 
-3. **Hapus Data Servis (Delete)**  
-   Admin dapat menghapus data servis pelanggan melalui tombol hapus pada setiap item data servis.
+3. **Menambahkan Data Servis (Create)**  
+   Pengguna dapat menambahkan data servis motor pelanggan yang terdiri dari nama pelanggan, tipe motor, dan keluhan.
+
+4. **Menampilkan Data Servis (Read)**  
+   Aplikasi menampilkan daftar data servis motor pelanggan yang tersimpan di database Supabase.
+
+5. **Edit Data Servis (Update)**  
+   Data servis yang sudah tersimpan dapat diperbarui apabila terdapat perubahan informasi.
+
+6. **Hapus Data Servis (Delete)**  
+   Pengguna dapat menghapus data servis yang tidak diperlukan.
+
+7. **Dark Mode dan Light Mode**  
+   Aplikasi menyediakan fitur perubahan tema tampilan untuk meningkatkan kenyamanan pengguna.
+
+8. **Logout**  
+   Pengguna dapat keluar dari aplikasi dan kembali ke halaman login.
 
 ---
 
 ## 📱 Widget yang Digunakan
 Berikut widget Flutter yang digunakan dalam pengembangan aplikasi:
 
-- MaterialApp  
-- Scaffold  
-- AppBar  
-- Container  
-- LinearGradient  
-- Text  
-- TextField  
-- ElevatedButton  
-- ListView  
-- ListTile  
-- Card  
-- IconButton  
-- FloatingActionButton  
-- Padding  
-- Column  
-- Row  
-- Navigator
+- MaterialApp
+- Scaffold
+- AppBar
+- TextField
+- ElevatedButton
+- TextButton
+- ListView
+- ListTile
+- Card
+- FloatingActionButton
+- IconButton
+- Center
+- Column
+- Row
+- SizedBox
+- Padding
+- AlertDialog
+- FutureBuilder
 
 ---
 
@@ -59,6 +70,9 @@ Aplikasi ini ditujukan untuk admin atau karyawan Bengkel DMR Samarinda yang bert
 ## ⚛ Teknologi
 - Flutter
 - Dart
+- Supabase Database
+- Supabase Authentication
+- Flutter Dotenv (.env)
 
 ---
 
@@ -99,4 +113,3 @@ Pada halaman utama aplikasi, setiap data servis pelanggan dilengkapi dengan tomb
 <img width="1919" height="879" alt="image" src="https://github.com/user-attachments/assets/a6920332-8fc0-4f45-b4f1-515f7953b33c" />
 
 Untuk tampilan akhirnya, setelah admin menghapus seluruh data servis pelanggan yang tersimpan, halaman utama aplikasi kembali menampilkan kondisi awal tanpa data. Halaman utama kembali menampilkan pesan “Belum ada data servis” yang menandakan tidak ada data tersimpan. Tombol tambah (+) tetap tersedia sehingga admin dapat menambahkan data servis baru kembali.
->>>>>>> ba6231c0f9e6ff087376ea6d5048dda1fb356089
